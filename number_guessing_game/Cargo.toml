@@ -1,0 +1,8 @@
+[package]
+name = "game"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eframe = "0.29.0"    # eframe for the GUI
+rand = "0.8.4"       # rand crate for generating random numbers

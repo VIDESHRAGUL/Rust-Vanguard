@@ -1,0 +1,9 @@
+[package]
+name = "cheat"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sysinfo = "0.31.3"          # For retrieving game process information
+process-memory = "0.5.0"    # For accessing the memory of other processes
+winapi = { version = "0.3", features = ["winnt", "processthreadsapi", "memoryapi", "basetsd"] }
