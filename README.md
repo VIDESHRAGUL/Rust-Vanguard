@@ -1,5 +1,3 @@
-Here's your `.md` file formatted in a professional manner:
-
 # Number Guessing Game with Cheat and Anti-Cheat
 
 This project demonstrates a simple number-guessing game, accompanied by a cheat tool and an anti-cheat system. The cheat tool attempts to retrieve the secret number from the game's memory, while the anti-cheat system monitors and alerts the user of any unauthorized attempts to access the game's memory.
