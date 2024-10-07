@@ -28,7 +28,7 @@ This project demonstrates a simple number-guessing game, accompanied by a cheat 
 
 ### 1. Clone the Repository:
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/VIDESHRAGUL/Rust-Vanguard.git
 ```
 
 ### 2. Install Dependencies:
