@@ -1,75 +1,74 @@
-# Number Guessing Game with Cheat and Anti-Cheat
+# Rust-Vanguard: Game Security Demonstration Platform
 
-This project demonstrates a simple number-guessing game, accompanied by a cheat tool and an anti-cheat system. The cheat tool attempts to retrieve the secret number from the game's memory, while the anti-cheat system monitors and alerts the user of any unauthorized attempts to access the game's memory.
+![Rust-Vanguard Logo](/public/images/logo.png)
+
+## Project Overview
+
+Rust-Vanguard is an educational platform that demonstrates game security concepts, including cheats and anti-cheat systems. The project uses Rust for the core security components, with games implemented in JavaScript/TypeScript for the web interface.
+
+## Purpose
+
+This platform is designed to:
+
+1. Demonstrate common game security vulnerabilities
+2. Show how cheats exploit these vulnerabilities
+3. Illustrate how anti-cheat systems detect and prevent cheating
+4. Provide an educational resource for understanding game security
 
 ## Project Structure
 
-- **Game**: A simple number-guessing game where the player must guess a secret number stored in memory.
-- **Cheat**: A memory scanner designed to locate and reveal the secret number hidden by the game.
-- **Anti-Cheat**: A monitoring tool that detects and alerts the user of any processes attempting to access the game's memory.
+- **Frontend**: Next.js with React and TypeScript
+- **Security Core**: Rust compiled to WebAssembly (Wasm)
+- **Games**: Simple implementations of classic games
+- **Cheat Systems**: One unique vulnerability exploit per game
+- **Anti-Cheat Systems**: Corresponding protection mechanisms
 
-## Features
+## Games and Vulnerabilities
 
-### Game
-- Command-line based number-guessing game.
-- The secret number is hidden in memory for the player to guess.
-  
-### Cheat
-- Scans the memory of the game process to locate the secret number.
-- Utilizes predefined memory signatures to accurately find the secret number.
-- Displays the detected number in a pop-up window or on the console.
+### 1. Memory Match
+- **Vulnerability**: Buffer Overflow
+- **Cheat**: Reveals all card positions by overflowing the memory buffer that stores card states
+- **Anti-Cheat**: Memory Integrity Verification that validates memory boundaries
 
-### Anti-Cheat
-- Continuously monitors the game process for any unauthorized memory access.
-- Detects and flags processes attempting to manipulate or read the game's memory.
-- Alerts the user in real time if a potential cheating attempt is detected.
+### 2. Minesweeper
+- **Vulnerability**: Memory Injection
+- **Cheat**: Injects code to reveal mine locations
+- **Anti-Cheat**: Process Monitoring that detects unauthorized memory modifications
 
-## How to Run
+### 3. Number Guessing
+- **Vulnerability**: API Manipulation
+- **Cheat**: Intercepts API responses to reveal the target number
+- **Anti-Cheat**: Request Validation that verifies the integrity of API calls
 
-### 1. Clone the Repository:
-```bash
-git clone https://github.com/VIDESHRAGUL/Rust-Vanguard.git
-```
+### 4. Space Shooter
+- **Vulnerability**: Time Manipulation
+- **Cheat**: Slows down game time to give the player an advantage
+- **Anti-Cheat**: Server-side Verification that ensures consistent game timing
 
-### 2. Install Dependencies:
-This project requires Rust along with several external libraries including `sysinfo`, `winapi`, and `native-windows-gui`. Ensure Rust is properly installed on your system.
+### 5. Puzzle Slide
+- **Vulnerability**: Code Injection
+- **Cheat**: Injects code to show the solution path
+- **Anti-Cheat**: Code Integrity Checking that prevents unauthorized code execution
 
-### 3. Build the Project:
-```bash
-cargo build
-```
+### 6. Tic Tac Toe
+- **Vulnerability**: Logic Manipulation
+- **Cheat**: Forces the AI to make suboptimal moves
+- **Anti-Cheat**: State Validation that ensures game logic follows expected patterns
 
-### 4. Running the Components:
+## How It Works
 
-- **Run the Game:**
-  Navigate to the game folder and execute the following command:
-  ```bash
-  cargo run --bin game
-  ```
+### Rust Security Core
 
-- **Run the Cheat:**
-  Navigate to the cheat folder and execute:
-  ```bash
-  cargo run --bin cheat
-  ```
+The security components are written in Rust and compiled to WebAssembly, providing:
 
-- **Run the Anti-Cheat:**
-  Navigate to the anti-cheat folder and run:
-  ```bash
-  cargo run --bin anti-cheat
-  ```
+1. Memory safety through Rust's ownership model
+2. High performance for real-time monitoring
+3. Cross-platform compatibility via WebAssembly
 
-## Dependencies
+```rust
+// Example Rust anti-cheat code (simplified)
+pub fn verify_memory_integrity(memory_region: &[u8], expected_hash: &str) -> bool {
+    let actual_hash = calculate_hash(memory_region);
+    actual_hash == expected_hash
+}
 
-- **Rust (Edition 2021)**
-- **sysinfo**: For process management and system information.
-- **process-memory**: Used for reading the memory of other processes.
-- **winapi**: Provides necessary access to the Windows API for process and memory operations.
-- **native-windows-gui**: Powers the graphical pop-up functionality for user notifications.
-
----
-
-Feel free to contribute to the project by creating pull requests or submitting issues. This project is intended for educational purposes to demonstrate basic memory manipulation and process monitoring techniques.
-```
-
-This version is more structured, includes clear sections, and maintains a professional tone throughout the document. It also provides an overview of the project, instructions, and details about the dependencies.
